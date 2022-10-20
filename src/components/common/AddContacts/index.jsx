@@ -9,8 +9,8 @@ class AddContacts extends Component {
   render() {
     const { onSubmit } = this.props;
     return (
-      <Section title={'Phonebook'}>
-        <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit}>
+        <Section title={'Name'}>
           <input
             type="text"
             name="name"
@@ -18,9 +18,18 @@ class AddContacts extends Component {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
-          <Button type={'submit'} text={'Add contact'} />
-        </form>
-      </Section>
+        </Section>
+        <Section title={'Number'}>
+          <input
+            type="tel"
+            name="number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+          />
+        </Section>
+        <Button type={'submit'} text={'Add contact'} />
+      </form>
     );
   }
 }

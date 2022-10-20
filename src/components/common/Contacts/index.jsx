@@ -11,8 +11,8 @@ class Contacts extends Component {
     return (
       <Section title={'Contacts'}>
         <ul>
-          {contacts.map(({ name, id }) => {
-            return <Item key={id}>{name}</Item>;
+          {contacts.map(({ name, number, id }) => {
+            return <Item key={id}>{name}:{number}</Item>;
           })}
         </ul>
       </Section>

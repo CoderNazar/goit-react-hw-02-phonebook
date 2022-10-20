@@ -5,13 +5,15 @@ import { AddContacts, Contacts } from 'components/common';
 class App extends Component {
   state = {
     contacts: [],
+    filter: '',
     name: '',
+    number: '',
   };
 
   onSubmit(event) {
     event.preventDefault();
     const id = nanoid();
-    const { name } = [...event.target.elements]
+    const { name, number } = [...event.target.elements]
       .filter(item => item.name)
       .reduce(
         (item, element) => ((item[element.name] = element.value), item),
@@ -19,7 +21,7 @@ class App extends Component {
       );
     const newState = { ...this.state };
     const { contacts } = newState;
-    contacts.push({ name, id });
+    contacts.push({ name, number, id });
     this.setState({
       ...newState,
       contacts,
@@ -31,7 +33,7 @@ class App extends Component {
     const { contacts } = this.state;
     return (
       <>
-        <AddContacts onSubmit={this.onSubmit.bind(this)} />;
+        <AddContacts onSubmit={this.onSubmit.bind(this)} />
         <Contacts contacts={contacts} />
       </>
     );
