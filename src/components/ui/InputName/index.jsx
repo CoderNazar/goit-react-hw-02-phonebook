@@ -4,7 +4,7 @@ import styles from './index.module.css';
 
 class InputName extends Component {
   static defaultProps = {
-    label: [],
+    label: '',
     onChange: () => {},
   };
   static propTypes = {
